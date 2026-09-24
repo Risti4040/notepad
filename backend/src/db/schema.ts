@@ -33,7 +33,7 @@ export const usersRelations = relations(users, ({ many }) => ({
 }));
 
 export const notesRelations = relations(notes, ({ one }) => ({
-  users: one(users, { fields: [notes.userId], references: [users.id] }),
+  user: one(users, { fields: [notes.userId], references: [users.id] }),
 }));
 
 //type inference

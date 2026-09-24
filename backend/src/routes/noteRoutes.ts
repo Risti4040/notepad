@@ -1,11 +1,13 @@
-import express from "express";
+import { Router } from "express";
+import * as noteController from "../controllers/noteController.js";
+import { requireUser } from "../middleware/requireUser.js";
 
-const router = express.Router();
+const router = Router();
 
-// router.get("/", controller.getNotes);
-// router.get("/:id", controller.getNote);
-// router.post("/", controller.createNote);
-// router.put("/:id", controller.updateNote);
-// router.delete("/:id", controller.deleteNote);
+router.get("/", requireUser, noteController.getUserNotes);
+router.get("/:id", requireUser, noteController.getNoteById);
+router.post("/", requireUser, noteController.createNote);
+router.put("/:id", requireUser, noteController.updateNote);
+router.delete("/:id", requireUser, noteController.deleteNote);
 
 export default router;
