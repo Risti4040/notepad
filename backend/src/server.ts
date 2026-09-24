@@ -6,6 +6,7 @@ import { ENV } from "./config/env.js";
 import noteRouters from "./routes/noteRoutes.js";
 
 const app = express();
+const port = ENV.PORT || 3000;
 app.use(cors({ origin: ENV.FRONTEND_URL }));
 app.use(express.json());
 app.use(clerkMiddleware());
@@ -23,6 +24,6 @@ app.get("/", async (req, res) => {
   });
 });
 
-app.listen(ENV.PORT, () => {
-  console.log(`Server running on http://localhost:${ENV.PORT}`);
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
 });
