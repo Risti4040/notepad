@@ -1,0 +1,74 @@
+// noteModels
+// import express from "express";
+// import pool from "../config/db.js";
+
+// export const getAllNotes = () => {
+//   return pool.query("Select * From notes ORDER BY id");
+// };
+
+// export const getNote = (id) => {
+//   return pool.query("Select * From notes WHERE id=$1", [id]);
+// };
+
+// export const createNote = async (req: express.Request) => {
+//   const { title, note } = req.body;
+//   await pool.query("INSERT INTO notes (title, note) VALUES( $1, $2)", [
+//     title,
+//     note,
+//   ]);
+// };
+
+// export const updateNote = async (req: express.Request) => {
+//   const { title, note } = req.body;
+//   const id = req.params.id;
+//   await pool.query("UPDATE notes SET title= $1, note=$2 WHERE id=$3", [
+//     title,
+//     note,
+//     id,
+//   ]);
+// };
+
+// export const deleteNote = (id) => {
+//   pool.query("DELETE From notes WHERE id=$1", [id]);
+// };
+
+
+
+//noteControllers
+// import type { Request, Response } from "express";
+// import * as model from "../models/noteModel.js";
+
+// export const getNotes = async (req: Request, res: Response) => {
+//   const result = await model.getAllNotes();
+//   res.json(result.rows);
+// };
+
+// export const getNote = async (req: Request, res: Response) => {
+//   const id = req.params.id;
+//   const result = await model.getNote(id);
+//   res.json(result.rows);
+// };
+
+// export const createNote = async (req: Request, res: Response) => {
+//   model.createNote(req);
+//   res.status(201).json({
+//     success: true,
+//     message: "note posted",
+//   });
+// };
+
+// export const updateNote = async (req: Request, res: Response) => {
+//   model.updateNote(req);
+//   res.status(200).json({
+//     success: true,
+//     message: "note updated",
+//   });
+// };
+
+// export const deleteNote = async (req: Request, res: Response) => {
+//   const id = req.params.id;
+//   await model.deleteNote(id);
+//   res.status(204).send();
+// };
+
+
