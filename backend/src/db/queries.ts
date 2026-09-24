@@ -40,7 +40,7 @@ export const upsertUser = async (data: NewUser) => {
 //NOTE QUERIES
 export const createNote = async (data: NewNote) => {
   const [note] = await db.insert(notes).values(data).returning();
-  return notes;
+  return note;
 };
 
 export const getNoteById = async (id: string) => {

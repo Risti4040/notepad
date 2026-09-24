@@ -23,8 +23,8 @@ app.get("/", async (req, res) => {
   });
 });
 
-app.use("api/notes", noteRoutes);
-app.use("api/users", userRoutes);
+app.use("/api/notes", noteRoutes);
+app.use("/api/users", userRoutes);
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);

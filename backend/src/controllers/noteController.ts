@@ -5,13 +5,19 @@ import { getAuth } from "@clerk/express";
 //GET ONE NOTE
 export const getNoteById = async (req: Request, res: Response) => {
   try {
+    const { userId } = getAuth(req);
+    if (!userId) {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+
     const { id } = req.params;
     if (typeof id !== "string") {
       return res.status(400).json({ error: "Invalid note ID" });
     }
+
     const note = await queries.getNoteById(id);
 
-    if (!note) {
+    if (!note || note.userId !== userId) {
       return res.status(404).json({ error: "Note not found" });
     }
 
@@ -54,7 +60,7 @@ export const createNote = async (req: Request, res: Response) => {
     if (!title || !content) {
       return res
         .status(400)
-        .json({ error: "Note title and content are requried" });
+        .json({ error: "Note title and content are required" });
     }
 
     const note = await queries.createNote({

@@ -13,7 +13,7 @@ export const syncUser = async (req: Request, res: Response) => {
     if (!email || !name || !imageUrl) {
       return res
         .status(400)
-        .json({ error: "Email, name, and imageUrl are requried" });
+        .json({ error: "Email, name, and imageUrl are required" });
     }
 
     const user = await queries.upsertUser({
