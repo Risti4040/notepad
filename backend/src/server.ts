@@ -8,7 +8,7 @@ import userRoutes from "./routes/userRoutes.js";
 
 const app = express();
 const port = ENV.PORT || 3000;
-app.use(cors({ origin: ENV.FRONTEND_URL }));
+app.use(cors({ origin: ENV.FRONTEND_URL, credentials: true }));
 app.use(express.json());
 app.use(clerkMiddleware());
 app.use(express.urlencoded({ extended: true }));
