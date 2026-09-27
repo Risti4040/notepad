@@ -21,7 +21,7 @@ function NotePage() {
     if (width < 768) {
       setIsSidebarOpen(false);
     }
-    if (width > 768) {
+    if (width >= 768) {
       setIsSidebarOpen(true);
     }
   }, [width < 768]);
