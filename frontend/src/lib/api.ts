@@ -1,9 +1,10 @@
-import api from "axios";
+import api from "./axios";
 import type { UserData, NoteData } from "../../../shared/types/type";
 
 //USERS API
-export const syncUser = async (userData: UserData) => {
+export const syncUser = async (userData: Partial<UserData>) => {
   const { data } = await api.post("/users/sync", userData);
+  console.log("syncUser data obtained");
   return data;
 };
 

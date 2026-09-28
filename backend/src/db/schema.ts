@@ -7,7 +7,7 @@ export const users = pgTable("users", {
   name: text("name"),
   imageUrl: text("image_url"),
   createdAt: timestamp("created_at", { mode: "date" }).notNull().defaultNow(),
-  updatedAT: timestamp("updated_at", { mode: "date" })
+  updatedAt: timestamp("updated_at", { mode: "date" })
     .notNull()
     .defaultNow()
     .$onUpdate(() => new Date()),
@@ -21,7 +21,7 @@ export const notes = pgTable("notes", {
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
   createdAt: timestamp("created_at", { mode: "date" }).notNull().defaultNow(),
-  updatedAT: timestamp("updated_at", { mode: "date" })
+  updatedAt: timestamp("updated_at", { mode: "date" })
     .notNull()
     .defaultNow()
     .$onUpdate(() => new Date()),
