@@ -4,14 +4,14 @@ export interface UserData {
   name: string | null;
   imageUrl: string | null;
   createdAt: Date;
-  updatedAT: Date;
+  updatedAt: Date;
 }
 
 export interface NoteData {
   userId: string;
   id: string;
   createdAt: Date;
-  updatedAT: Date;
+  updatedAt: Date;
   title: string;
   content: string | null;
 }

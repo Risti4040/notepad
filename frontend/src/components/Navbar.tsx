@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/react";
 import { NotebookPen } from "lucide-react";
 
 interface NavbarProps {
@@ -25,7 +25,15 @@ function Navbar({ isSidebarOpen, toggleSidebar }: NavbarProps) {
           )}
           <div className="px-4">Navbar</div>
         </div>
-        <div>sds</div>
+        <div className="mr-4">
+          <Show when="signed-out">
+            <SignInButton mode="modal" />
+            <SignUpButton mode="modal" />
+          </Show>
+          <Show when="signed-in">
+            <UserButton />
+          </Show>
+        </div>
       </div>
     </header>
   );
