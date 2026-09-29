@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
+import NoteEditor from "../components/NoteEditor/NoteEditor";
 
 function NotePage() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -32,7 +33,10 @@ function NotePage() {
   return (
     <>
       <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <Navbar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <div className="flex flex-col min-h-screen">
+        <Navbar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+        <NoteEditor isSidebarOpen={isSidebarOpen} />
+      </div>
     </>
   );
 }
