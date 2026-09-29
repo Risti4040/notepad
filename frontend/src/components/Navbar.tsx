@@ -9,21 +9,21 @@ interface NavbarProps {
 function Navbar({ isSidebarOpen, toggleSidebar }: NavbarProps) {
   return (
     <header
-      className={`fixed top-0 right-0 h-12 transition-all duration-300 
-        ${isSidebarOpen ? "left-64" : "left-0"} 
-        lg:${isSidebarOpen ? "translate-x-0" : ""} `}
+      className={`shadow-md bg-transparent fixed top-0 right-0 h-12 transition-all duration-300 
+        ${isSidebarOpen ? "md:left-75 left-0" : "left-0"} 
+        `}
     >
-      <div className="h-full flex items-center justify-between bg-base-300">
-        <div className="flex">
+      <div className="h-full flex items-center justify-between bbg-base-300">
+        <div className="flex items-center">
           {!isSidebarOpen && (
             <button
               onClick={toggleSidebar}
-              className="text-xl rounded-lg text-left hover:bg-gray-200"
+              className="text-xl h-full p-1 rounded-lg text-left hover:bg-gray-300 ml-2"
             >
               <NotebookPen />
             </button>
           )}
-          <div className="px-4">Navbar</div>
+          <div className="ml-2 text-xl">Navbar</div>
         </div>
         <div className="mr-4">
           <Show when="signed-out">

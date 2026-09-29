@@ -9,7 +9,7 @@ function App() {
   const { isClerkLoaded, isSignedIn } = useAuthReq();
   useSyncUser();
   if (!isClerkLoaded) {
-    return;
+    return null;
   }
   return (
     <div className="min-h-screen bg-base-100 ">
